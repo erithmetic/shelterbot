@@ -12,8 +12,8 @@ twilio_clint = Client()
 
 @app.route('/twilio', methods=['POST'])
 def twilio_post():
-    request.form['From']
-    message = request.form['Body']
+    from_phone = request.form['From']
+    message = from_phone + ' ' + request.form['Body']
     slack.notify(channel="#harvey-shelters",
                  text=message, username="shelterbot",
                  icon_emoji=':house:')
