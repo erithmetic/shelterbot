@@ -12,15 +12,14 @@ twilio_clint = Client()
 
 @app.route('/twilio', methods=['POST'])
 def twilio_post():
-    response = MessagingResponse()
     request.form['From']
     message = request.form['Body']
     slack_client.api_call("chat.postMessage", channel="#harvey-shelters",
                           text=message, username="shelterbot",
                           icon_emoji=':house:')
 
-    response.message(message)
-    return Response(response.toxml(), mimetype="text/xml"), 200
+    response = MessagingResponse()
+    return str(response)
 
 if __name__ == '__main__':
     app.run(debug=True)
