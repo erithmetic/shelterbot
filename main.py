@@ -19,6 +19,7 @@ def twilio_post():
                           text=message, username="shelterbot",
                           icon_emoji=':house:')
 
+    response.message(message)
     return Response(response.toxml(), mimetype="text/xml"), 200
 
 if __name__ == '__main__':
