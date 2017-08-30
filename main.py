@@ -12,7 +12,7 @@ twilio_clint = Client()
 
 @app.route('/twilio', methods=['POST'])
 def twilio_post():
-    response = FessagingResponse()
+    response = MessagingResponse()
     request.form['From']
     message = request.form['Body']
     slack_client.api_call("chat.postMessage", channel="#harvey-shelters",
