@@ -19,6 +19,7 @@ def twilio_post():
                  icon_emoji=':house:')
 
     response = MessagingResponse()
+    response.message("Thank you for helping update the Harvey Shelter Map!")
     return str(response)
 
 if __name__ == '__main__':
